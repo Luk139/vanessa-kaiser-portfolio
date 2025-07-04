@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanessa Kaiser - Fotografin</title>
+    <style>
+        /* BASIC RESETS & GLOBAL STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.6;
+            color: #000; /* Black text */
+            background-color: #fff; /* White background */
+            scroll-behavior: smooth; /* Smooth scrolling for navigation */
+            font-size: 16px; /* Base font size */
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .site-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-size: 0.95em;
+            text-transform: uppercase;
+            font-weight: normal;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #555;
+            text-decoration: none;
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+        }
+
+        .portfolio-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-height: 80px; /* Ensure space for vertical text */
+        }
+
+        .category-label {
+            writing-mode: vertical-rl; /* Rotate text */
+            transform: rotate(180deg);
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            color: #555;
+            border-right: 1px solid #ccc; /* Separator line */
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+            height: 100%; /* Take full height of its container */
+            min-height: 80px; /* Ensure it matches section header height */
+        }
+        
+        .portfolio-section h2 {
+            font-size: 2.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            flex-grow: 1; /* Allow title to take remaining space */
+        }
+
+        /* GALLERY GRID */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid columns */
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent look */
+            object-fit: cover; /* Crop images to fit */
+            display: block;
+            transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+
+        /* INFO SECTIONS (About, Contact, Impressum, Datenschutz) */
+        .info-section {
+            margin-bottom: 60px;
+            padding-top: 20px; /* To account for sticky header when linking */
+            line-height: 1.8;
+        }
+
+        .info-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .info-section p {
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 40px;
+            border-top: 1px solid #eee;
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .site-title {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            main {
+                padding: 15px 20px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                min-height: auto;
+            }
+
+            .category-label {
+                writing-mode: horizontal-tb;
+                transform: none;
+                border-right: none;
+                border-bottom: 1px solid #ccc;
+                padding-right: 0;
+                padding-bottom: 5px;
+                height: auto;
+                width: 100%;
+                text-align: left;
+                justify-content: flex-start;
+                min-height: auto;
+            }
+
+            .portfolio-section h2 {
+                font-size: 1.8em;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .gallery img {
+                height: 150px;
+            }
+
+            .info-section {
+                margin-bottom: 40px;
+            }
+
+            .info-section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="site-title">VANESSA KAISER</h1>
+            <nav>
+                <ul>
+                    <li><a href="#arbeiten">Arbeiten</a></li>
+                    <li><a href="#ueber-mich">Über Mich</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="#impressum">Impressum</a></li>
+                    <li><a href="#datenschutz">Datenschutz</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="arbeiten" class="portfolio-section">
+            <div class="section-header">
+                <span class="category-label">Corporate, Porträts</span>
+                <h2>BUSINESS PORTÄTS</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://picsum.photos/id/1012/600/400" alt="Business Porträt 1">
+                <img src="https://picsum.photos/id/1011/600/400" alt="Business Porträt 2">
+                <img src="https://picsum.photos/id/1015/600/400" alt="Business Porträt 3">
+                <img src="https://picsum.photos/id/1016/600/400" alt="Business Porträt 4">
+                <img src="https://picsum.photos/id/1019/600/400" alt="Business Porträt 5">
+                <img src="https://picsum.photos/id/1025/600/400" alt="Business Porträt 6">
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="section-header">
+                <span class="category-label">Corporate, Industrie</span>
+                <h2>UNTERNEHMENSREPORTAGEN</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://picsum.photos/id/103/600/400" alt="Unternehmensreportage 1">
+                <img src="https://picsum.photos/id/104/600/400" alt="Unternehmensreportage 2">
+                <img src="https://picsum.photos/id/106/600/400" alt="Unternehmensreportage 3">
+                <img src="https://picsum.photos/id/107/600/400" alt="Unternehmensreportage 4">
+                <img src="https://picsum.photos/id/108/600/400" alt="Unternehmensreportage 5">
+                <img src="https://picsum.photos/id/111/600/400" alt="Unternehmensreportage 6">
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="section-header">
+                <span class="category-label">Corporate, Industrie, Stories</span>
+                <h2>LOGISTIK & INDUSTRIE</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://picsum.photos/id/1005/600/400" alt="Logistik 1">
+                <img src="https://picsum.photos/id/1006/600/400" alt="Logistik 2">
+                <img src="https://picsum.photos/id/1008/600/400" alt="Logistik 3">
+                <img src="https://picsum.photos/id/1009/600/400" alt="Logistik 4">
+                <img src="https://picsum.photos/id/1010/600/400" alt="Logistik 5">
+                <img src="https://picsum.photos/id/1013/600/400" alt="Logistik 6">
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="section-header">
+                <span class="category-label">Architektur</span>
+                <h2>ARCHITEKTUR & INTERIEUR</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://picsum.photos/id/1043/600/400" alt="Architektur 1">
+                <img src="https://picsum.photos/id/1047/600/400" alt="Architektur 2">
+                <img src="https://picsum.photos/id/1050/600/400" alt="Architektur 3">
+                <img src="https://picsum.photos/id/1051/600/400" alt="Architektur 4">
+                <img src="https://picsum.photos/id/1052/600/400" alt="Architektur 5">
+                <img src="https://picsum.photos/id/1053/600/400" alt="Architektur 6">
+            </div>
+        </section>
+
+        <section class="portfolio-section">
+            <div class="section-header">
+                <span class="category-label">Magazin, Porträts</span>
+                <h2>MENSCHEN</h2>
+            </div>
+            <div class="gallery">
+                <img src="https://picsum.photos/id/1004/600/400" alt="Porträt 1">
+                <img src="https://picsum.photos/id/1003/600/400" alt="Porträt 2">
+                <img src="https://picsum.photos/id/1002/600/400" alt="Porträt 3">
+                <img src="https://picsum.photos/id/1000/600/400" alt="Porträt 4">
+                <img src="https://picsum.photos/id/100/600/400" alt="Porträt 5">
+                <img src="https://picsum.photos/id/101/600/400" alt="Porträt 6">
+            </div>
+        </section>
+
+        <section id="ueber-mich" class="info-section">
+            <h2>Über Mich</h2>
+            <p>Hallo! Ich bin Vanessa Kaiser, eine leidenschaftliche Fotografin mit Sitz in [Ihre Stadt/Region]. Seit vielen Jahren fange ich mit meiner Kamera Geschichten ein und halte Momente fest, die in Erinnerung bleiben. Mein Fokus liegt auf authentischen und aussagekräftigen Bildern, sei es in der Business-Fotografie, bei Unternehmensreportagen, in der Logistikbranche oder im Bereich Architektur. Ich liebe es, die Persönlichkeit meiner Kunden und die Essenz ihrer Projekte sichtbar zu machen.</p>
+            <p>Jedes Projekt ist für mich einzigartig, und ich arbeite eng mit meinen Kunden zusammen, um ihre Visionen zu verstehen und in beeindruckende Bilder zu übersetzen. Lassen Sie uns gemeinsam Ihr nächstes Projekt zum Leben erwecken!</p>
+        </section>
+
+        <section id="kontakt" class="info-section">
+            <h2>Kontakt</h2>
+            <p>Sie möchten ein Projekt besprechen, haben Fragen oder wünschen ein individuelles Angebot? Kontaktieren Sie mich gerne!</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:info@vanessakaiser.de">info@vanessakaiser.de</a></p>
+            <p><strong>Telefon:</strong> +49 (0) XXXX XXXX XXX</p>
+            <p>Ich freue mich auf Ihre Nachricht.</p>
+        </section>
+
+        <section id="impressum" class="info-section">
+            <h2>Impressum</h2>
+            <p><strong>Vanessa Kaiser Fotografie</strong></p>
+            <p>[Ihre Straße und Hausnummer]<br>
+            [PLZ Ort]<br>
+            Deutschland</p>
+            <p><strong>Vertreten durch:</strong> Vanessa Kaiser</p>
+            <p><strong>Umsatzsteuer-Identifikationsnummer:</strong> [Ihre USt-ID, falls vorhanden, z.B. DE123456789]</p>
+            <p><strong>Inhaltlich Verantwortliche gemäß § 55 Abs. 2 RStV:</strong> Vanessa Kaiser</p>
+        </section>
+
+        <section id="datenschutz" class="info-section">
+            <h2>Datenschutz</h2>
+            <p>Der Schutz Ihrer persönlichen Daten ist mir sehr wichtig. Nachfolgend informiere ich Sie über die Art, den Umfang und den Zweck der Erhebung und Verwendung personenbezogener Daten auf dieser Website.</p>
+            <p><strong>1. Erhebung und Verarbeitung von Daten</strong><br>
+            Diese Website dient primär der Präsentation meiner Arbeiten. Es werden keine Cookies gesetzt, die eine Nachverfolgung ermöglichen. Personenbezogene Daten werden nur erhoben, wenn Sie diese freiwillig über das Kontaktformular (falls vorhanden) oder per E-Mail zur Verfügung stellen.</p>
+            <p><strong>2. Nutzung und Weitergabe personenbezogener Daten</strong><br>
+            Ihre personenbezogenen Daten werden ausschließlich zur Beantwortung Ihrer Anfragen oder zur Abwicklung von Verträgen verwendet. Eine Weitergabe an Dritte findet ohne Ihre ausdrückliche Zustimmung nicht statt, es sei denn, dies ist zur Vertragserfüllung notwendig oder gesetzlich vorgeschrieben.</p>
+            <p><strong>3. Rechte des Nutzers</strong><br>
+            Sie haben jederzeit das Recht auf Auskunft über die zu Ihrer Person gespeicherten Daten, deren Herkunft und Empfänger sowie den Zweck der Datenverarbeitung. Sie haben außerdem das Recht auf Berichtigung, Sperrung oder Löschung dieser Daten, sofern dem keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+            <p>Bei Fragen zum Datenschutz kontaktieren Sie mich bitte unter den im Impressum angegebenen Kontaktdaten.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Vanessa Kaiser Fotografie. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
